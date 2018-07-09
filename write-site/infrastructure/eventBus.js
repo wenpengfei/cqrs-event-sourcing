@@ -3,15 +3,14 @@ const { PubSubQueue } = require('rabbitmq-processer')
 class EventBus {
 
     async init() {
-        const pubSubQueue = new PubSubQueue({ exchangeName: 'events' })
+        const pubSubQueue = new PubSubQueue()
         await pubSubQueue.connect()
         this._pubSubQueue = pubSubQueue
     }
 
     handle(event) {
         if (this._pubSubQueue) {
-            console.log('eventBus', event)
-            this._pubSubQueue.publish(JSON.stringify(event))
+            this._pubSubQueue.publish('domain.events', `domain.events`, JSON.stringify(event))
         } else {
             throw 'mq connect error'
         }

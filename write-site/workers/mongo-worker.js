@@ -3,7 +3,7 @@
     const pubSubQueue = new PubSubQueue({ exchangeName: 'events' })
     await pubSubQueue.connect()
     
-    pubSubQueue.subscribe(message => {
+    pubSubQueue.subscribe('domain.events', 'domain.events', message => {
         console.log(message.content.toString())
     })
 })()

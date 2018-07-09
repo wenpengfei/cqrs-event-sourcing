@@ -10,7 +10,7 @@ class CommandBus {
 
     handle(command) {
         if (this._workQueue) {
-            this._workQueue.send(JSON.stringify(command))
+            this._workQueue.send(`commands`, JSON.stringify(command))
         } else {
             throw 'mq connect error'
         }
