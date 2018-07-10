@@ -1,9 +1,10 @@
-(async () => {
-    const { PubSubQueue } = require('rabbitmq-processer')
-    const pubSubQueue = new PubSubQueue({ exchangeName: 'events' })
-    await pubSubQueue.connect()
-    
-    pubSubQueue.subscribe('domain.events', 'domain.events', message => {
-        console.log(message.content.toString())
+const EventBus = require('../infrastructure/eventBus')
+const eventBus = new EventBus()
+eventBus.connect()
+
+eventBus.on('connected', async () => {
+    const options = { exchangeName: 'xxxxxxxxxxxx', routeKey: 'sbbbbbbbbbbb' }
+    eventBus.startListening(options, message => {
+        console.log('mongo-worker', message.content.toString())
     })
-})()
+})

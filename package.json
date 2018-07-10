@@ -11,7 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "rabbitmq-processer": "^1.0.2"
+    "eventstore": "^1.14.1",
+    "rabbitmq-processer": "^1.0.2",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"

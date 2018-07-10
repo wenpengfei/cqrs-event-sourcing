@@ -1,5 +1,11 @@
+const uuid = require('uuid/v1')
+
 const createUser = (userName, password) => {
   const timestamp = new Date()
+  const version = 0
+  const aggregateId = uuid()
+  const userId = uuid()
+  const aggregate = 'user'
 
   if (!userName) {
     throw '用户名不能为空'
@@ -12,25 +18,31 @@ const createUser = (userName, password) => {
   return [
     {
       type: 'UserCreated',
+      timestamp,
+      aggregate,
+      version,
       payload: {
-        userId: 1,
-        timestamp
+        userId,
       }
     },
     {
       type: 'UserNameDefined',
+      timestamp,
+      aggregate,
+      version,
       payload: {
         userName,
-        timestamp
       }
     },
     {
       type: 'UserPasswordDefined',
+      timestamp,
+      aggregate,
+      version,
       payload: {
         password,
-        timestamp
       }
-    }
+    },
   ]
 }
 

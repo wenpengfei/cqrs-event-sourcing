@@ -1,23 +1,28 @@
-// this worker can distributed
-(async () => {
-    const { WorkQueue } = require('rabbitmq-processer')
-    const userHandler = require('../commandHandlers/user')
-    const EventBus = require('../infrastructure/eventBus')
-    
-    const workQueue = new WorkQueue()
-    await workQueue.connect()
+const CommandBus = require('../infrastructure/commandBus')
+const EventBus = require('../infrastructure/eventBus')
 
-    const eventBus = new EventBus()
-    await eventBus.init()
+const commandBus = new CommandBus()
+const eventBus = new EventBus()
 
-    workQueue.receive('commands', message => {
-        const command = JSON.parse(message.content.toString())
-        console.log(command)
-        const { name, payload } = command
-        if (userHandler[name]) {
-            const event = userHandler[name](payload)
-            eventBus.handle(event)
-            workQueue.ack(message)
-        }
+commandBus.connect()
+eventBus.connect()
+
+commandBus.on('connected', () => {
+    console.log('commandBus connected')
+    commandBus.startListening('sbQueue', async (message) => {
+        await eventBus.connect()
+        eventBus.publish({
+            exchangeName: 'xxxxxxxxxxxx',
+            routeKey: 'sbbbbbbbbbbb',
+            message: { sb: '你是sb' }
+        })
+        commandBus.ack(message)
     })
-})()
+})
+
+
+
+
+
+
+

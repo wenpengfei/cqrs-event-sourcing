@@ -1,7 +1,9 @@
 const createUser = require('../domain/entities/user/create')
 const updateUser = require('../domain/entities/user/update')
 
-module.exports = {
+module.exports = (
+  userRepository
+) => ({
   createUser: (payload) => {
     const { userName, password } = payload
     return createUser(userName, password)
@@ -10,4 +12,4 @@ module.exports = {
     const { userName, password } = payload
     return updateUser(userName, password)
   }
-}
+})
