@@ -1,4 +1,9 @@
 const createUser = (userId, userName, password) => {
+
+  if (!userId) {
+    throw '用户id不能为空'
+  }
+
   if (!userName) {
     throw '用户名不能为空'
   }
