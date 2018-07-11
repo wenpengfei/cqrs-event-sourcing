@@ -10,7 +10,7 @@ class EventBus extends EventEmitter {
                 throw 'exchangeName is mandatory'
             }
             if (!routeKey) {
-                throw 'exchangeName is mandatory'
+                throw 'routeKey is mandatory'
             }
             return this._pubSubQueue.publish(exchangeName, routeKey, JSON.stringify(message))
         }

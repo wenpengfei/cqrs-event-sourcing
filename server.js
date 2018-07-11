@@ -1,8 +1,24 @@
+const uuid = require('uuid/v1')
+
 const CommandBus = require('./write-site/infrastructure/commandBus')
 const commandBus = new CommandBus()
+
 commandBus.connect()
 commandBus.on('connected', () => {
-    console.log('commandBus connected')
-    commandBus.publish('sbQueue', {text: '你是傻逼'})
+    const commandId = uuid()
+    const aggregateId = uuid()
+    const command = {
+        name: 'createUser',
+        commandId,
+        aggregateId,
+        version: 0,
+        timestamp: new Date(),
+        payload: {
+            userId: aggregateId,
+            userName: 'testusername',
+            password: 'testusername'
+        }
+    }
+    commandBus.publish(command.name, command)
 })
 
