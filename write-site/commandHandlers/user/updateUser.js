@@ -1,16 +1,16 @@
-const CommandBus = require('../../infrastructure/commandBus')
-const EventBus = require('../../infrastructure/eventBus')
 const commands = require('../../infrastructure/commands')
+const CommandExecutor = require('../../infrastructure/commandExecutor')
 
-const commandBus = new CommandBus()
-const eventBus = new EventBus()
+const commandExecutor = new CommandExecutor()
+commandExecutor.init()
 
-commandBus.connect()
 
-commandBus.on('connected', async () => {
-    await eventBus.connect()
-    commandBus.startListening(commands.updateUser, (message) => {
-        console.log('updateUser receive:', message.content.toString())
-        commandBus.ack(message)
+const updateUser = require('../../domain/entities/user/update')
+
+commandExecutor.on('connected', () => {
+    commandExecutor.execute(commands.updateUser, function (command, message) {
+        const { userId, userName, password } = command.payload
+        return updateUser(userId, userName, password)
     })
 })
+
