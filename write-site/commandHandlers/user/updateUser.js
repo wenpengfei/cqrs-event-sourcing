@@ -8,7 +8,6 @@ const eventBus = new EventBus()
 commandBus.connect()
 
 commandBus.on('connected', async () => {
-    console.log(`commandBus: ${commands.updateUser} connected`)
     await eventBus.connect()
     commandBus.startListening(commands.updateUser, (message) => {
         console.log('updateUser receive:', message.content.toString())

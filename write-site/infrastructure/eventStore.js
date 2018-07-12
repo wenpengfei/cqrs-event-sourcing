@@ -1,16 +1,20 @@
 const EventEmitter = require('events')
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-const Event = mongoose.model('Event', {
+const eventSchema = new Schema({
     commandId: String,
     aggregateId: String,
     version: Number,
     timestamp: Date,
     type: String,
     payload: Object,
-})
+}, { versionKey: false })
+
+const Event = mongoose.model('Event', eventSchema)
 
 class EventStore extends EventEmitter {
+
     async connect() {
         return mongoose.connect('mongodb://localhost:27017/event-source', { useNewUrlParser: true })
     }

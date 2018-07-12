@@ -1,15 +1,17 @@
+const DomainError = require('../../DomainError')
+
 const createUser = (userId, userName, password) => {
 
   if (!userId) {
-    throw '用户id不能为空'
+    throw new DomainError('用户id不能为空')
   }
 
   if (!userName) {
-    throw '用户名不能为空'
+    throw new DomainError('用户名不能为空')
   }
 
   if (!password) {
-    throw '密码不能为空'
+    throw new DomainError('密码不能为空')
   }
 
   return [

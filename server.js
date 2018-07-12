@@ -15,10 +15,9 @@ commandBus.on('connected', () => {
         timestamp: new Date(),
         payload: {
             userId: aggregateId,
-            userName: 'testusername',
-            password: 'testusername'
+            userName: 'asfsasa',
+            password: 'sb'
         }
     }
     commandBus.publish(command.name, command)
 })
-
