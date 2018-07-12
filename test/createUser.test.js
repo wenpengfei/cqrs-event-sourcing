@@ -18,8 +18,8 @@ test('createUser', async () => {
         timestamp: new Date(),
         payload: {
             userId: aggregateId,
-            userName: 'wocao',
-            password: 'buna!!'
+            userName: 'nishisba',
+            password: '====!!'
         }
     }
 

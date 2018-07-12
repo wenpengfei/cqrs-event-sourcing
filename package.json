@@ -12,10 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eventstore": "^1.14.1",
     "mongoose": "^5.2.3",
     "pm2": "^3.0.0",
-    "rabbitmq-processer": "^1.0.2",
+    "rabbitmq-broker": "^1.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

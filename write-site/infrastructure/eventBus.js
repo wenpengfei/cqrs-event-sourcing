@@ -1,5 +1,5 @@
 const EventEmitter = require('events')
-const { PubSubQueue } = require('rabbitmq-processer')
+const { PubSubQueue } = require('rabbitmq-broker')
 
 class EventBus extends EventEmitter {
 
