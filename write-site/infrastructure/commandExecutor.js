@@ -4,7 +4,8 @@ const CommandBus = require('./commandBus')
 const EventBus = require('./eventBus')
 const EventStore = require('./eventStore')
 const CommandStore = require('./commandStore')
-const createEvents = require('./createEvents')
+const createEvent = require('./createEvent')
+const debug = require('debug')('commandExecutor')
 
 class CommandExecutor extends EventEmitter {
     // constructor(options) {
@@ -40,17 +41,17 @@ class CommandExecutor extends EventEmitter {
             try {
                 await this.commandStore.saveCommand(command);
                 const domainEvents = executor.call(this, command, message)
-                const events = createEvents(command, domainEvents)
+                const events = createEvent(command, domainEvents)
                 this.eventStore.saveEventStream(events)
                 this.commandBus.ack(message)
             } catch (error) {
+                debug(error.message)
+                console.error(error)
                 if (error.message) {
                     if (error.message.indexOf('duplicate key error') !== -1) {
-                        console.log(['CommandExecutor', 'Unique Error', 'command duplicate, command rejected'])
                         this.commandBus.ack(message)
                     }
-                    if (error.message.indexOf('duplicate aggregateId and version') !== -1) {
-                        console.log(['CommandExecutor', 'Unique Error', 'version duplicate, command rejected'])
+                    if (error.message.indexOf('illegal command version') !== -1) {
                         this.commandBus.ack(message)
                     }
                 }

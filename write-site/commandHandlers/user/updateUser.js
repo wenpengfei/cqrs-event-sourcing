@@ -1,11 +1,9 @@
 const commands = require('../../infrastructure/commands')
 const CommandExecutor = require('../../infrastructure/commandExecutor')
+const updateUser = require('../../domain/entities/user/update')
 
 const commandExecutor = new CommandExecutor()
 commandExecutor.init()
-
-
-const updateUser = require('../../domain/entities/user/update')
 
 commandExecutor.on('connected', () => {
     commandExecutor.execute(commands.updateUser, function (command, message) {

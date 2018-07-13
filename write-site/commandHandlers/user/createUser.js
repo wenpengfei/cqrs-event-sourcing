@@ -1,6 +1,6 @@
 const commands = require('../../infrastructure/commands')
-const createUser = require('../../domain/entities/user/create')
 const CommandExecutor = require('../../infrastructure/commandExecutor')
+const createUser = require('../../domain/entities/user/create')
 
 const commandExecutor = new CommandExecutor()
 commandExecutor.init()

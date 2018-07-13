@@ -11,6 +11,8 @@ const eventSchema = new Schema({
     payload: Object,
 }, { versionKey: false })
 
+eventSchema.index({ aggregateId: 1, version: 1 }, { unique: true })
+
 const Event = mongoose.model('Event', eventSchema)
 
 class EventStore extends EventEmitter {

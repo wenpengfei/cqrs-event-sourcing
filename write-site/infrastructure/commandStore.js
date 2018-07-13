@@ -1,18 +1,18 @@
 const EventEmitter = require('events')
 const mongoose = require('mongoose')
+
 const Schema = mongoose.Schema
 
 const commandSchema = new Schema({
     name: String,
-    commandId: String,
+    commandId: { type: String, unique: true },
     aggregateId: String,
     version: Number,
     timestamp: Date,
     payload: Object,
 }, { versionKey: false })
 
-// commandSchema.index({ aggregateId: 1, version: 1}, { unique: true })
-commandSchema.index({ aggregateId: 1, commandId: 1 }, { unique: true })
+commandSchema.index({ aggregateId: 1, version: 1 }, { unique: true })
 
 const Command = mongoose.model('Command', commandSchema)
 
@@ -22,9 +22,19 @@ class CommandStore extends EventEmitter {
     }
     async saveCommand(command) {
         const { aggregateId, version } = command
-        const aggregateIdAndVersionUnique = await Command.count({ aggregateId, version })
-        if (aggregateIdAndVersionUnique > 0) {
-            throw new Error('duplicate aggregateId and version')
+        const [latestCommand] = await Command.find({ aggregateId }).sort({ version: -1 }).limit(1)
+        let exceptVersion = 1
+        if (latestCommand) {
+            exceptVersion = latestCommand.version + 1
+            if (version !== exceptVersion) {
+                const message = `illegal command version, except ${exceptVersion} but ${version}`
+                throw new Error(message)
+            }
+        } else {
+            if (version !== exceptVersion) {
+                const message = `illegal command version, except ${exceptVersion} but ${version}`
+                throw new Error(message)
+            }
         }
         return Command.create(command)
     }

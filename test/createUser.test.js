@@ -26,12 +26,12 @@ test('createUser', async () => {
     await commandBus.connect()
     await commandBus.publish(command.name, command)
 
-    setTimeout(async() => {
+    setTimeout(async () => {
         const eventStore = new EventStore()
         await eventStore.connect()
         const history = await eventStore.getEventStream(aggregateId)
         const userState = reduceToUser(history)
-
+        console.log('userState', userState)
         expect(userState.userId).toEqual(command.payload.userId)
         expect(userState.userName).toEqual(command.payload.userName)
         expect(userState.password).toEqual(command.payload.password)

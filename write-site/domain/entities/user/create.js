@@ -14,26 +14,14 @@ const createUser = (userId, userName, password) => {
     throw new DomainError('密码不能为空')
   }
 
-  return [
-    {
-      type: 'UserCreated',
-      payload: {
-        userId,
-      }
-    },
-    {
-      type: 'UserNameDefined',
-      payload: {
-        userName,
-      }
-    },
-    {
-      type: 'UserPasswordDefined',
-      payload: {
-        password,
-      }
-    },
-  ]
+  return {
+    type: 'UserCreated',
+    payload: {
+      userId,
+      userName,
+      password,
+    }
+  }
 }
 
 module.exports = createUser

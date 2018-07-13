@@ -7,7 +7,9 @@
         "error": "./logs/commandHandlers/createUser.err.log",
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {
-            "NODE_ENV": "development"
+            "NODE_ENV": "development",
+            "DEBUG": "*",
+            "DEBUG_COLORS": true
         }
     },
     {
@@ -18,7 +20,9 @@
         "error": "./logs/commandHandlers/updateUser.err.log",
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {
-            "NODE_ENV": "development"
+            "NODE_ENV": "development",
+            "DEBUG": "*",
+            "DEBUG_COLORS": true
         }
     }
 ]
