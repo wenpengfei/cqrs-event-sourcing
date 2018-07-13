@@ -43,6 +43,11 @@ class CommandExecutor extends EventEmitter {
                 const domainEvents = executor.call(this, command, message)
                 const events = createEvent(command, domainEvents)
                 this.eventStore.saveEventStream(events)
+                // this.eventBus.publish({
+                //     exchangeName,
+                //     routeKey,
+                //     message
+                // })
                 this.commandBus.ack(message)
             } catch (error) {
                 debug(error.message)

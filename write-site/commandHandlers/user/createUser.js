@@ -6,7 +6,7 @@ const commandExecutor = new CommandExecutor()
 commandExecutor.init()
 
 commandExecutor.on('connected', () => {
-    commandExecutor.execute(commands.createUser, function (command, message) {
+    commandExecutor.execute(commands.CreateUser, function (command, message) {
         const { userId, userName, password } = command.payload
         return createUser(userId, userName, password)
     })

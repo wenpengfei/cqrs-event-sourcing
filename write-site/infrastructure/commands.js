@@ -1,4 +1,4 @@
 module.exports = {
-    createUser: 'createUser',
-    updateUser: 'updateUser'
+    CreateUser: 'CreateUser',
+    UpdateUser: 'UpdateUser'
 }

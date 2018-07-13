@@ -1,4 +1,5 @@
 const DomainError = require('../../DomainError')
+const events = require('../../../infrastructure/events')
 
 const createUser = (userId, userName, password) => {
 
@@ -15,7 +16,7 @@ const createUser = (userId, userName, password) => {
   }
 
   return {
-    type: 'UserCreated',
+    type: events.UserCreated,
     payload: {
       userId,
       userName,

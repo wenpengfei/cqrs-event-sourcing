@@ -1,3 +1,5 @@
+const events = require('../../infrastructure/events')
+
 const initialState = {
     userId: '',
     userName: '',
@@ -6,20 +8,10 @@ const initialState = {
 
 const reducer = (acc, curr) => {
     switch (curr.type) {
-        case 'UserCreated':
+        case events.UserCreated:
             return {
                 ...initialState,
                 userId: curr.payload.userId
-            }
-        case 'UserNameDefined':
-            return {
-                ...acc,
-                userName: curr.payload.userName
-            }
-        case 'UserPasswordDefined':
-            return {
-                ...acc,
-                password: curr.payload.password
             }
         default:
             return initialState

@@ -11,10 +11,10 @@ test('createUser', async () => {
     const commandId = uuid()
     const aggregateId = uuid()
     const command = {
-        name: 'createUser',
+        name: 'CreateUser',
         commandId,
         aggregateId,
-        version: 0,
+        version: 1,
         timestamp: new Date(),
         payload: {
             userId: aggregateId,
