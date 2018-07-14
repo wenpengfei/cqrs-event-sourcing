@@ -1,8 +1,8 @@
 const uuid = require('uuid/v1')
 
-const EventStore = require('../write-site/infrastructure/eventStore')
-const reduceToUser = require('../write-site/domain/reducers/user')
-const CommandBus = require('../write-site/infrastructure/commandBus')
+const EventStore = require('../src/infrastructure/eventStore')
+const reduceToUser = require('../src/domain/reducers/user')
+const CommandBus = require('../src/infrastructure/commandBus')
 const commandBus = new CommandBus()
 
 

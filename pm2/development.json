@@ -1,7 +1,7 @@
 [
     {
         "name": "createUser-worker",
-        "script": "./write-site/commandHandlers/user/createUser.js",
+        "script": "./src/commandHandlers/user/createUser.js",
         "watch": true,
         "output": "./logs/commandHandlers/createUser.log",
         "error": "./logs/commandHandlers/createUser.err.log",
@@ -14,7 +14,7 @@
     },
     {
         "name": "updateUser-worker",
-        "script": "./write-site/commandHandlers/user/updateUser.js",
+        "script": "./src/commandHandlers/user/updateUser.js",
         "watch": true,
         "output": "./logs/commandHandlers/updateUser.log",
         "error": "./logs/commandHandlers/updateUser.err.log",
