@@ -1,5 +1,6 @@
 const EventBus = require('../../infrastructure/eventBus')
 const events = require('../../infrastructure/events')
+const { User } = require('../../persistents/mysql/adapter/makeMysqlClient')
 
 const eventBus = new EventBus()
 eventBus.connect()
@@ -9,6 +10,9 @@ eventBus.on('connected', () => {
         exchangeName: events.userCreated,
         routeKey: events.userCreated
     }, async (message) => {
-        console.log('mysql receive:', message.content.toString())
+        const event = JSON.parse(message.content.toString())
+        const { userId, userName, password } = event.payload
+        const { version } = event
+        User.create({userId, userName, password, version})
     })
 })
