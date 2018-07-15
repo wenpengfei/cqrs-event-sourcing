@@ -1,5 +1,7 @@
 const EventEmitter = require('events')
 const mongoose = require('mongoose')
+const R = require('ramda')
+
 const Schema = mongoose.Schema
 
 const eventSchema = new Schema({

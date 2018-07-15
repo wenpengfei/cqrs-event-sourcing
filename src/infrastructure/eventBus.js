@@ -3,7 +3,7 @@ const { PubSubQueue } = require('rabbitmq-broker')
 
 class EventBus extends EventEmitter {
 
-    publish(options) {
+    async publish(options) {
         const { message, exchangeName, routeKey } = options
         if (this._pubSubQueue) {
             if (!exchangeName) {

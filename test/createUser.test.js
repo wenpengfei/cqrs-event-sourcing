@@ -1,17 +1,14 @@
 const uuid = require('uuid/v1')
-
 const EventStore = require('../src/infrastructure/eventStore')
 const reduceToUser = require('../src/domain/reducers/user')
 const CommandBus = require('../src/infrastructure/commandBus')
 const commandBus = new CommandBus()
 
-
 test('createUser', async () => {
-
     const commandId = uuid()
     const aggregateId = uuid()
     const command = {
-        name: 'CreateUser',
+        name: 'createUser',
         commandId,
         aggregateId,
         version: 1,
@@ -22,10 +19,8 @@ test('createUser', async () => {
             password: '====!!'
         }
     }
-
     await commandBus.connect()
     await commandBus.publish(command.name, command)
-
     setTimeout(async () => {
         const eventStore = new EventStore()
         await eventStore.connect()

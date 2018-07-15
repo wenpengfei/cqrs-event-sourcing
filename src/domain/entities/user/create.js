@@ -16,7 +16,7 @@ const createUser = (userId, userName, password) => {
   }
 
   return {
-    type: events.UserCreated,
+    type: events.userCreated,
     payload: {
       userId,
       userName,

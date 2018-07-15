@@ -1,3 +1,3 @@
 module.exports = {
-    UserCreated: 'UserCreated'
+    userCreated: 'userCreated'
 }

@@ -1,10 +1,8 @@
 [
     {
-        "name": "createUser-worker",
+        "name": "command-createUser-worker",
         "script": "./src/commandHandlers/user/createUser.js",
         "watch": true,
-        "output": "./logs/commandHandlers/createUser.log",
-        "error": "./logs/commandHandlers/createUser.err.log",
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {
             "NODE_ENV": "development",
@@ -13,11 +11,9 @@
         }
     },
     {
-        "name": "updateUser-worker",
+        "name": "command-updateUser-worker",
         "script": "./src/commandHandlers/user/updateUser.js",
         "watch": true,
-        "output": "./logs/commandHandlers/updateUser.log",
-        "error": "./logs/commandHandlers/updateUser.err.log",
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {
             "NODE_ENV": "development",

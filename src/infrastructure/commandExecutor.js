@@ -6,6 +6,7 @@ const EventStore = require('./eventStore')
 const CommandStore = require('./commandStore')
 const createEvent = require('./createEvent')
 const debug = require('debug')('commandExecutor')
+const R = require('ramda');
 
 class CommandExecutor extends EventEmitter {
     // constructor(options) {
@@ -41,13 +42,13 @@ class CommandExecutor extends EventEmitter {
             try {
                 await this.commandStore.saveCommand(command);
                 const domainEvents = executor.call(this, command, message)
-                const events = createEvent(command, domainEvents)
-                this.eventStore.saveEventStream(events)
-                // this.eventBus.publish({
-                //     exchangeName,
-                //     routeKey,
-                //     message
-                // })
+                const event = createEvent(command, domainEvents)
+                await this.eventStore.saveEventStream(event)
+                await this.eventBus.publish({
+                    exchangeName: event.type,
+                    routeKey: event.type,
+                    message: R.dissoc('_id', event)
+                })
                 this.commandBus.ack(message)
             } catch (error) {
                 debug(error.message)
