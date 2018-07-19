@@ -1,4 +1,4 @@
-const EventBus = require('../../infrastructure/eventBus')
+const { EventBus } = require('cqrs-lite')
 const events = require('../../infrastructure/events')
 
 const eventBus = new EventBus()

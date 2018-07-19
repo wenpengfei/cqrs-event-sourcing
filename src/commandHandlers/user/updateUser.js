@@ -1,9 +1,15 @@
 const commands = require('../../infrastructure/commands')
-const CommandExecutor = require('../../infrastructure/commandExecutor')
+const { CommandExecutor } = require('cqrs-lite')
 const updateUser = require('../../domain/entities/user/update')
 
 const commandExecutor = new CommandExecutor()
-commandExecutor.init()
+
+commandExecutor.init({
+    commandBusUrl: 'amqp://localhost',
+    eventBusUrl: 'amqp://localhost',
+    eventStoreUrl: 'mongodb://localhost:27017/event-source',
+    commandStoreUrl: 'mongodb://localhost:27017/event-source'
+})
 
 commandExecutor.on('connected', () => {
     commandExecutor.execute(commands.updateUser, function (command, message) {
