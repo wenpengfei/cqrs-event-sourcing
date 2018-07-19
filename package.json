@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cqrs-lite": "^1.0.4",
     "mongoose": "^5.2.3",
     "mysql2": "^1.5.3",
     "rabbitmq-broker": "^1.0.0",

@@ -1,9 +1,9 @@
-const EventBus = require('../../infrastructure/eventBus')
+const { EventBus } = require('cqrs-lite')
 const events = require('../../infrastructure/events')
 const { User } = require('../../persistents/mysql/adapter/makeMysqlClient')
 
 const eventBus = new EventBus()
-eventBus.connect()
+eventBus.connect('amqp://localhost')
 
 eventBus.on('connected', () => {
     eventBus.startListening({
