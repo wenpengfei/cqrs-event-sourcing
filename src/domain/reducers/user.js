@@ -13,6 +13,11 @@ const reducer = (acc, curr) => {
                 ...initialState,
                 userId: curr.payload.userId
             }
+        case events.UserCreated:
+            return {
+                ...acc,
+                userName: curr.payload.userName
+            }
         default:
             return initialState
     }

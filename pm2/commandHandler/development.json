@@ -12,7 +12,7 @@
     },
     {
         "name": "command-updateUser-worker",
-        "script": "./src/commandHandlers/user/updateUser.js",
+        "script": "./src/commandHandlers/user/updateUserProfile.js",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {

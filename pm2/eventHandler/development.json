@@ -11,8 +11,8 @@
         }
     },
     {
-        "name": "event-userCreated-elasticsearch-worker",
-        "script": "./src/eventHandlers/userCreated/elasticsearch.js",
+        "name": "event-userProfileUpdated-mysql-worker",
+        "script": "./src/eventHandlers/userProfileUpdated/mysql.js",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {
@@ -20,5 +20,5 @@
             "DEBUG": "*",
             "DEBUG_COLORS": true
         }
-    }
+    },
 ]

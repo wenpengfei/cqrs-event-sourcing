@@ -1,6 +1,7 @@
-const commands = require('../../infrastructure/commands')
 const { CommandExecutor } = require('cqrs-lite')
-const updateUser = require('../../domain/entities/user/update')
+
+const commands = require('../../infrastructure/commands')
+const updateUserProfile = require('../../domain/entities/user/updateProfile')
 
 const commandExecutor = new CommandExecutor()
 
@@ -12,8 +13,8 @@ commandExecutor.init({
 })
 
 commandExecutor.on('connected', () => {
-    commandExecutor.execute(commands.updateUser, function (command, message) {
-        const { userId, userName, password } = command.payload
-        return updateUser(userId, userName, password)
+    commandExecutor.execute(commands.updateUserProfile, function (command, message) {
+        const { userId, userName } = command.payload
+        return updateUserProfile(userId, userName)
     })
 })

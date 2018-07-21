@@ -7,13 +7,16 @@ eventBus.connect('amqp://localhost')
 
 eventBus.on('connected', () => {
     eventBus.startListening({
-        exchangeName: events.userCreated,
-        routeKey: events.userCreated
+        exchangeName: events.userProfileUpdated,
+        routeKey: events.userProfileUpdated
     }, async (message) => {
         const event = JSON.parse(message.content.toString())
-        const { userId, userName, password } = event.payload
+        console.log(event)
+        const { userId, userName } = event.payload
         const { version } = event
-        console.log(userName)
-        User.create({userId, userName, password, version})
+        User.update(
+            { userName, version },
+            { where: { userId } }
+        )
     })
 })

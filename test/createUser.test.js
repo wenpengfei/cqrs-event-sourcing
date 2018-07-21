@@ -1,7 +1,6 @@
 const uuid = require('uuid/v1')
-const EventStore = require('../src/infrastructure/eventStore')
+const { EventStore, CommandBus } = require('cqrs-lite')
 const reduceToUser = require('../src/domain/reducers/user')
-const CommandBus = require('../src/infrastructure/commandBus')
 const commandBus = new CommandBus()
 
 test('createUser', async () => {
@@ -15,7 +14,7 @@ test('createUser', async () => {
         timestamp: new Date(),
         payload: {
             userId: aggregateId,
-            userName: 'nishisba',
+            userName: '沙比吧？？？？',
             password: '====!!'
         }
     }

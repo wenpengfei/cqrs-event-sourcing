@@ -1,4 +1,4 @@
-const DomainError = require('../../DomainError')
+const { DomainError } = require('cqrs-lite')
 const events = require('../../../infrastructure/events')
 
 const createUser = (userId, userName, password) => {
