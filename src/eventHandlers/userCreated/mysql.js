@@ -13,7 +13,6 @@ eventBus.on('connected', () => {
         const event = JSON.parse(message.content.toString())
         const { userId, userName, password } = event.payload
         const { version } = event
-        console.log(userName)
-        User.create({userId, userName, password, version})
+        User.create({ userId, userName, password, version })
     })
 })

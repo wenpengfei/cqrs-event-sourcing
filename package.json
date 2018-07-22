@@ -8,7 +8,8 @@
     "dev": "nodemon server.js",
     "commandHandlers:dev": "pm2 startOrReload pm2/commandHandler/development.json --update-env",
     "eventHandlers:dev": "pm2 startOrReload pm2/eventHandler/development.json --update-env",
-    "works:dev": "npm run commandHandlers:dev && npm run eventHandlers:dev"
+    "works:dev": "npm run commandHandlers:dev && npm run eventHandlers:dev",
+    "syncTable": "node src/persistents/mysql/adapter/syncTable.js"
   },
   "keywords": [],
   "author": "",
