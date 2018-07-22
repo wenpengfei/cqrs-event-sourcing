@@ -14,20 +14,10 @@ test('createUser', async () => {
         timestamp: new Date(),
         payload: {
             userId: aggregateId,
-            userName: '沙比吧？？？？',
-            password: '====!!'
+            userName: '新的',
+            password: 'ffff'
         }
     }
     await commandBus.connect()
     await commandBus.publish(command.name, command)
-    setTimeout(async () => {
-        const eventStore = new EventStore()
-        await eventStore.connect()
-        const history = await eventStore.getEventStream(aggregateId)
-        const userState = reduceToUser(history)
-        console.log('userState', userState)
-        expect(userState.userId).toEqual(command.payload.userId)
-        expect(userState.userName).toEqual(command.payload.userName)
-        expect(userState.password).toEqual(command.payload.password)
-    }, 3000);
 })
