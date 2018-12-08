@@ -1,10 +1,10 @@
 {
-  "name": "DDD",
+  "name": "cqrs-event-sourcing",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "commandHandlers:dev": "pm2 startOrReload pm2/command.development.json --update-env",
     "eventHandlers:dev": "pm2 startOrReload pm2/event.development.json --update-env",
     "buildConf": "node internal/pm2conf.js",

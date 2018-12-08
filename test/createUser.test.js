@@ -18,6 +18,6 @@ test('createUser', async () => {
             password: 'ffff'
         }
     }
-    await commandBus.connect()
+    const db = await commandBus.connect()
     await commandBus.publish(command.name, command)
 })
