@@ -1,0 +1,35 @@
+[
+    {
+        "name": "event-user-userCreated-elasticsearch-worker",
+        "script": "./src/eventHandlers/user/userCreated/elasticsearch.js",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "event-user-userCreated-mysql-worker",
+        "script": "./src/eventHandlers/user/userCreated/mysql.js",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "event-user-userProfileUpdated-mysql-worker",
+        "script": "./src/eventHandlers/user/userProfileUpdated/mysql.js",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "*",
+            "DEBUG_COLORS": true
+        }
+    },
+]

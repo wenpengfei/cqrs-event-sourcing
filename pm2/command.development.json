@@ -1,7 +1,7 @@
 [
     {
-        "name": "event-userCreated-mysql-worker",
-        "script": "./src/eventHandlers/userCreated/mysql.js",
+        "name": "command-user-createUser-worker",
+        "script": "./src/commandHandlers/user/createUser.js",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {
@@ -11,8 +11,8 @@
         }
     },
     {
-        "name": "event-userProfileUpdated-mysql-worker",
-        "script": "./src/eventHandlers/userProfileUpdated/mysql.js",
+        "name": "command-user-updateUserProfile-worker",
+        "script": "./src/commandHandlers/user/updateUserProfile.js",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {
