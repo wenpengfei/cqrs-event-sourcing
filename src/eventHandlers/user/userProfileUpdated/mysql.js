@@ -1,22 +1,14 @@
-const { EventBus } = require('cqrs-lite')
+const { EventExecutor  } = require('cqrs-lite')
 const events = require('../../../infrastructure/events')
-const { User } = require('../../../persistents/mysql/adapter/makeMysqlClient')
+const debug = require('debug')('eventHandles:user:userProfileUpdated:elasticSearch')
+const eventExecutor = new EventExecutor()
 
-const eventBus = new EventBus()
-eventBus.connect('amqp://localhost')
+eventExecutor.init({
+    eventBusUrl:'amqp://localhost',
+})
 
-eventBus.on('connected', () => {
-    eventBus.startListening({
-        exchangeName: events.userProfileUpdated,
-        routeKey: events.userProfileUpdated
-    }, async (message) => {
-        const event = JSON.parse(message.content.toString())
-        console.log(event)
-        const { userId, userName } = event.payload
-        const { version } = event
-        User.update(
-            { userName, version },
-            { where: { userId } }
-        )
+eventExecutor.on('connected', () => {
+    eventExecutor.execute(events.userProfileUpdated, function (event, message) {
+        debug(event)
     })
 })

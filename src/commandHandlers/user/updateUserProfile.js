@@ -1,7 +1,7 @@
 const { CommandExecutor } = require('cqrs-lite')
-
 const commands = require('../../infrastructure/commands')
 const updateUserProfile = require('../../domain/entities/user/updateProfile')
+const debug = require('debug')('commandHandlers:user:updateUserProfile')
 
 const commandExecutor = new CommandExecutor()
 
@@ -14,6 +14,7 @@ commandExecutor.init({
 
 commandExecutor.on('connected', () => {
     commandExecutor.execute(commands.updateUserProfile, function (command, message) {
+        debug(command)
         const { userId, userName } = command.payload
         return updateUserProfile(userId, userName)
     })
