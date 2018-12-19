@@ -1,0 +1,14 @@
+const { EventExecutor } = require('cqrs-lite')
+const events = require('../../../infrastructure/events')
+const debug = require('debug')('cqrs:eventHandles:{{moduleName}}:{{eventName}}:readDB')
+const eventExecutor = new EventExecutor()
+
+eventExecutor.init({
+    eventBusUrl: 'amqp://localhost',
+})
+
+eventExecutor.on('connected', () => {
+    eventExecutor.execute(events.{{eventName}}, function (event, message) {
+        debug(event)
+    })
+})

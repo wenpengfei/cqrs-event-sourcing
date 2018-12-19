@@ -7,8 +7,9 @@
     "test": "jest --detectOpenHandles",
     "commandHandlers:dev": "pm2 startOrReload pm2/command.development.json --update-env",
     "eventHandlers:dev": "pm2 startOrReload pm2/event.development.json --update-env",
-    "buildConf": "node internal/pm2conf.js",
-    "dev": "npm run buildConf && npm run commandHandlers:dev && npm run eventHandlers:dev"
+    "pm2conf": "node internal/pm2conf.js",
+    "generate": "node internal/generate.js",
+    "dev": "npm run pm2conf && npm run commandHandlers:dev && npm run eventHandlers:dev"
   },
   "keywords": [],
   "author": "",
@@ -24,9 +25,12 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0",
     "debug": "^3.1.0",
     "glob": "^7.1.3",
     "handlebars": "^4.0.12",
+    "handlebars-helpers": "^0.10.0",
     "jest": "^23.4.0",
     "nodemon": "^1.17.5"
   }

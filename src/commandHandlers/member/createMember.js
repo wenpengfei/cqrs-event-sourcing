@@ -1,7 +1,7 @@
 const commands = require('../../infrastructure/commands')
-const createUser = require('../../domain/entities/user/create')
+const createMember = require('../../domain/entities/member/createMember')
 const { CommandExecutor } = require('cqrs-lite')
-const debug = require('debug')('cqrs:commandHandlers:user:createUser')
+const debug = require('debug')('cqrs:commandHandlers:member:createMember')
 
 const commandExecutor = new CommandExecutor()
 
@@ -13,9 +13,7 @@ commandExecutor.init({
 })
 
 commandExecutor.on('connected', () => {
-    commandExecutor.execute(commands.createUser, function (command, message) {
+    commandExecutor.execute(commands.createMember, function (command, message) {
         debug(command)
-        const { userId, userName, password } = command.payload
-        return createUser(userId, userName, password)
     })
 })
