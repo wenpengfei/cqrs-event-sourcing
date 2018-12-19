@@ -1,7 +1,7 @@
 [
     {
-        "name": "event-user-userCreated-elasticsearch-worker",
-        "script": "./src/eventHandlers/user/userCreated/elasticsearch.js",
+        "name": "event-member-memberCreated-elasticsearch-worker",
+        "script": "./src/eventHandlers/member/memberCreated/elasticsearch.js",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {
@@ -11,19 +11,8 @@
         }
     },
     {
-        "name": "event-user-userCreated-mysql-worker",
-        "script": "./src/eventHandlers/user/userCreated/mysql.js",
-        "watch": true,
-        "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "env": {
-            "NODE_ENV": "development",
-            "DEBUG": "cqrs*",
-            "DEBUG_COLORS": true
-        }
-    },
-    {
-        "name": "event-user-userProfileUpdated-mysql-worker",
-        "script": "./src/eventHandlers/user/userProfileUpdated/mysql.js",
+        "name": "event-member-memberCreated-mysql-worker",
+        "script": "./src/eventHandlers/member/memberCreated/mysql.js",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {

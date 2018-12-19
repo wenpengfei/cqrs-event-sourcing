@@ -1,6 +1,6 @@
 const { EventExecutor } = require('cqrs-lite')
 const events = require('../../../infrastructure/events')
-const debug = require('debug')('cqrs:eventHandles:member:memberCreated:readDB')
+const debug = require('debug')('cqrs:eventHandles:member:memberCreated:mysql')
 const eventExecutor = new EventExecutor()
 
 eventExecutor.init({

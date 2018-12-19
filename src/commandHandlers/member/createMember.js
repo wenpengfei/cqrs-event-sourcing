@@ -15,5 +15,6 @@ commandExecutor.init({
 commandExecutor.on('connected', () => {
     commandExecutor.execute(commands.createMember, function (command, message) {
         debug(command)
+        return createMember()
     })
 })

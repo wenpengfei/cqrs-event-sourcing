@@ -1,13 +1,12 @@
 const uuid = require('uuid/v1')
 const { EventStore, CommandBus } = require('cqrs-lite')
-const reduceToUser = require('../src/domain/reducers/user')
 const commandBus = new CommandBus()
 
 test('createUser', async () => {
     const commandId = uuid()
     const aggregateId = uuid()
     const command = {
-        name: 'createUser',
+        name: 'createMember',
         commandId,
         aggregateId,
         version: 1,

@@ -18,13 +18,14 @@ const args = { moduleName, commandName, eventName }
 const commandContent = handlebars.compile(commandSource)(args)
 const domainContent = handlebars.compile(domainEventSource)(args)
 const reducerContent = handlebars.compile(reducerSource)(args)
-const eventHandlerContent = handlebars.compile(eventHandlerSource)(args)
+const eventHandlerMysqlContent = handlebars.compile(eventHandlerSource)({ ...args, db: 'mysql' })
+const eventHandlerElasticSearchContent = handlebars.compile(eventHandlerSource)({ ...args, db: 'elasticsearch' })
 
 fse.outputFileSync(`src/commandHandlers/${moduleName}/${commandName}.js`, commandContent)
 fse.outputFileSync(`src/domain/entities/${moduleName}/${commandName}.js`, domainContent)
 fse.outputFileSync(`src/domain/reducers/${moduleName}.js`, reducerContent)
-fse.outputFileSync(`src/eventHandlers/${moduleName}/${eventName}/mysql.js`, eventHandlerContent)
-fse.outputFileSync(`src/eventHandlers/${moduleName}/${eventName}/elasticsearch.js`, eventHandlerContent)
+fse.outputFileSync(`src/eventHandlers/${moduleName}/${eventName}/mysql.js`, eventHandlerMysqlContent)
+fse.outputFileSync(`src/eventHandlers/${moduleName}/${eventName}/elasticsearch.js`, eventHandlerElasticSearchContent)
 
 // commands
 glob("src/commandHandlers/**/*.js", {}, function (error, files) {

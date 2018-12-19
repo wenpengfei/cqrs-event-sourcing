@@ -15,5 +15,6 @@ commandExecutor.init({
 commandExecutor.on('connected', () => {
     commandExecutor.execute(commands.{{commandName}}, function (command, message) {
         debug(command)
+        return {{commandName}}()
     })
 })
