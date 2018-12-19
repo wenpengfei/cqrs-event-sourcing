@@ -1,10 +1,10 @@
-const { EventExecutor  } = require('cqrs-lite')
+const { EventExecutor } = require('cqrs-lite')
 const events = require('../../../infrastructure/events')
 const debug = require('debug')('eventHandles:user:userCreated:mysql')
 const eventExecutor = new EventExecutor()
 
 eventExecutor.init({
-    eventBusUrl:'amqp://localhost',
+    eventBusUrl: 'amqp://localhost',
 })
 
 eventExecutor.on('connected', () => {
