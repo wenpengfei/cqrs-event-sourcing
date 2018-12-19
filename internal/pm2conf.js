@@ -13,7 +13,7 @@ glob("src/commandHandlers/**/*.js", {}, function (error, files) {
             filePath: `./${item}`
         }
     })
-    const source = fs.readFileSync(path.resolve(__dirname, './template/command.development.hbs'), 'utf8')
+    const source = fs.readFileSync(path.resolve(__dirname, './template/pm2/command.development.hbs'), 'utf8')
     const content = Handlebars.compile(source)(arr)
     fse.outputFileSync('pm2/command.development.json', content)
 })
@@ -28,7 +28,7 @@ glob("src/eventHandlers/**/*.js", {}, function (error, files) {
             roleName: roleName.split('.')[0]
         }
     })
-    const source = fs.readFileSync(path.resolve(__dirname, './template/event.development.hbs'), 'utf8')
+    const source = fs.readFileSync(path.resolve(__dirname, './template/pm2/event.development.hbs'), 'utf8')
     const content = Handlebars.compile(source)(arr)
     fse.outputFileSync('pm2/event.development.json', content)
 })

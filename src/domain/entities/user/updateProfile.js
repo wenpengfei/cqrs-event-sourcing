@@ -9,5 +9,4 @@ const updateUserProfile = (userId, userName, password) => {
     }
   }
 }
-
 module.exports = updateUserProfile

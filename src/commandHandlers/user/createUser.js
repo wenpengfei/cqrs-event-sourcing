@@ -1,7 +1,7 @@
 const commands = require('../../infrastructure/commands')
 const createUser = require('../../domain/entities/user/create')
 const { CommandExecutor } = require('cqrs-lite')
-const debug = require('debug')('commandHandlers:user:createUser')
+const debug = require('debug')('cqrs:commandHandlers:user:createUser')
 
 const commandExecutor = new CommandExecutor()
 

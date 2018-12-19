@@ -1,7 +1,7 @@
 const { CommandExecutor } = require('cqrs-lite')
 const commands = require('../../infrastructure/commands')
 const updateUserProfile = require('../../domain/entities/user/updateProfile')
-const debug = require('debug')('commandHandlers:user:updateUserProfile')
+const debug = require('debug')('cqrs:commandHandlers:user:updateUserProfile')
 
 const commandExecutor = new CommandExecutor()
 
