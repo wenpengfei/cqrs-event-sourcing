@@ -1,22 +1,24 @@
 const uuid = require('uuid/v1')
 const { EventStore, CommandBus } = require('cqrs-lite')
+const commands = require('../src/infrastructure/commands')
+
 const commandBus = new CommandBus()
 
-test('createUser', async () => {
+test('createMember', async () => {
     const commandId = uuid()
     const aggregateId = uuid()
     const command = {
-        name: 'createMember',
+        name: commands.createMember,
         commandId,
         aggregateId,
         version: 1,
         timestamp: new Date(),
         payload: {
-            userId: aggregateId,
-            userName: '新的',
-            password: 'ffff'
+            memberId: aggregateId,
+            memberName: '新的',
         }
     }
+    console.log('name' in command)
     const db = await commandBus.connect()
     await commandBus.publish(command.name, command)
 })

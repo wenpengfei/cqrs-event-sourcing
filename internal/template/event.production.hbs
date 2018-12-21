@@ -1,0 +1,12 @@
+[
+    {{#each this}}
+    {
+        "name": "event-{{moduleName}}-{{eventName}}-{{roleName}}-worker",
+        "script": "{{filePath}}",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {{/each}}
+]

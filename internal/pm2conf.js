@@ -13,9 +13,13 @@ glob("src/commandHandlers/**/*.js", {}, function (error, files) {
             filePath: `./${item}`
         }
     })
-    const source = fs.readFileSync(path.resolve(__dirname, './template/command.development.hbs'), 'utf8')
-    const content = Handlebars.compile(source)(arr)
-    fse.outputFileSync('pm2/command.development.json', content)
+    const devSource = fs.readFileSync(path.resolve(__dirname, './template/command.development.hbs'), 'utf8')
+    const devContent = Handlebars.compile(devSource)(arr)
+    fse.outputFileSync('pm2/command.development.json', devContent)
+
+    const prodSource = fs.readFileSync(path.resolve(__dirname, './template/command.production.hbs'), 'utf8')
+    const prodContent = Handlebars.compile(prodSource)(arr)
+    fse.outputFileSync('pm2/command.production.json', prodContent)
 })
 
 glob("src/eventHandlers/**/*.js", {}, function (error, files) {
@@ -28,7 +32,11 @@ glob("src/eventHandlers/**/*.js", {}, function (error, files) {
             roleName: roleName.split('.')[0]
         }
     })
-    const source = fs.readFileSync(path.resolve(__dirname, './template/event.development.hbs'), 'utf8')
-    const content = Handlebars.compile(source)(arr)
-    fse.outputFileSync('pm2/event.development.json', content)
+    const devSource = fs.readFileSync(path.resolve(__dirname, './template/event.development.hbs'), 'utf8')
+    const devContent = Handlebars.compile(devSource)(arr)
+    fse.outputFileSync('pm2/event.development.json', devContent)
+
+    const prodSource = fs.readFileSync(path.resolve(__dirname, './template/event.production.hbs'), 'utf8')
+    const prodContent = Handlebars.compile(prodSource)(arr)
+    fse.outputFileSync('pm2/event.production.json', prodContent)
 })

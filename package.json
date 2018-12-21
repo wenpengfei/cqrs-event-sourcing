@@ -6,11 +6,14 @@
   "scripts": {
     "test": "jest --detectOpenHandles",
     "commandHandlers:dev": "pm2 startOrReload pm2/command.development.json --update-env",
+    "commandHandlers:prod": "pm2 startOrReload pm2/command.production.json --update-env",
     "eventHandlers:dev": "pm2 startOrReload pm2/event.development.json --update-env",
+    "eventHandlers:prod": "pm2 startOrReload pm2/event.production.json --update-env",
     "pm2conf": "node internal/pm2conf.js",
     "generate": "node internal/generate.js",
     "clean": "node internal/clean.js",
-    "dev": "npm run pm2conf && npm run commandHandlers:dev && npm run eventHandlers:dev"
+    "dev": "npm run pm2conf && npm run commandHandlers:dev && npm run eventHandlers:dev",
+    "prod": "npm run pm2conf && npm run commandHandlers:prod && npm run eventHandlers:prod"
   },
   "keywords": [],
   "author": "",
