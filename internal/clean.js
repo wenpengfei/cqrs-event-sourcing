@@ -8,6 +8,7 @@ if (!shell.which('git')) {
 process.stdout.write('Cleanup started...')
 shell.rm('-rf', 'src/commandHandlers/*')
 shell.rm('-rf', 'src/domain/*')
+shell.rm('-rf', 'pm2/*')
 shell.rm('-rf', 'src/eventHandlers/*')
 shell.rm('-rf', 'src/infrastructure/commands.js')
 shell.rm('-rf', 'src/infrastructure/events.js')
