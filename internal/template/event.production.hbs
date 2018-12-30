@@ -1,9 +1,10 @@
 [
     {{#each this}}
     {
-        "name": "event-{{moduleName}}-{{eventName}}-{{roleName}}-worker",
+        "name": "prod-event-{{moduleName}}-{{eventName}}-{{roleName}}-worker",
         "script": "{{filePath}}",
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
         "env": {
             "NODE_ENV": "production"
         }

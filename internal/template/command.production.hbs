@@ -1,8 +1,9 @@
 [
     {{#each this}}
     {
-        "name": "command-{{moduleName}}-{{commandName}}-worker",
+        "name": "prod-command-{{moduleName}}-{{commandName}}-worker",
         "script": "{{filePath}}",
+        "max_memory_restart" : "200M",
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
         "env": {
             "NODE_ENV": "production"

@@ -1,9 +1,10 @@
 [
     {
-        "name": "event-member-memberCreated-elasticsearch-worker",
-        "script": "./src/eventHandlers/member/memberCreated/elasticsearch.js",
+        "name": "dev-event-product-productCreated-mysql-worker",
+        "script": "./src/eventHandlers/product/productCreated/mysql.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -11,10 +12,167 @@
         }
     },
     {
-        "name": "event-member-memberCreated-mysql-worker",
-        "script": "./src/eventHandlers/member/memberCreated/mysql.js",
+        "name": "dev-event-product-productDeleted-mysql-worker",
+        "script": "./src/eventHandlers/product/productDeleted/mysql.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-product-productUpdated-mysql-worker",
+        "script": "./src/eventHandlers/product/productUpdated/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productAttribute-productAttributeCreated-mysql-worker",
+        "script": "./src/eventHandlers/productAttribute/productAttributeCreated/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productAttribute-productAttributeDeleted-mysql-worker",
+        "script": "./src/eventHandlers/productAttribute/productAttributeDeleted/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productAttribute-productAttributeUpdated-mysql-worker",
+        "script": "./src/eventHandlers/productAttribute/productAttributeUpdated/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productCategory-productCategoryCreated-mysql-worker",
+        "script": "./src/eventHandlers/productCategory/productCategoryCreated/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productCategory-productCategoryDeleted-mysql-worker",
+        "script": "./src/eventHandlers/productCategory/productCategoryDeleted/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productCategory-productCategoryUpdated-mysql-worker",
+        "script": "./src/eventHandlers/productCategory/productCategoryUpdated/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productCategoryAttribute-productCategoryAttributeCreated-mysql-worker",
+        "script": "./src/eventHandlers/productCategoryAttribute/productCategoryAttributeCreated/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productCategoryAttribute-productCategoryAttributeDeleted-mysql-worker",
+        "script": "./src/eventHandlers/productCategoryAttribute/productCategoryAttributeDeleted/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productCategoryAttribute-productCategoryAttributeUpdated-mysql-worker",
+        "script": "./src/eventHandlers/productCategoryAttribute/productCategoryAttributeUpdated/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productSku-productSkuCreated-mysql-worker",
+        "script": "./src/eventHandlers/productSku/productSkuCreated/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productSku-productSkuDeleted-mysql-worker",
+        "script": "./src/eventHandlers/productSku/productSkuDeleted/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-event-productSku-productSkuUpdated-mysql-worker",
+        "script": "./src/eventHandlers/productSku/productSkuUpdated/mysql.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",

@@ -1,0 +1,20 @@
+import { EventExecutor } from 'cqrs-lite'
+import events from '../../../infrastructure/events'
+import { ProductCategoryAttributeProps } from '../../../domain/types/productCategoryAttribute';
+import { ProductCategoryAttribute } from '../../../persistents/mysql/adapter/makeMysqlClient';
+const debug = require('debug')('cqrs:eventHandles:productCategoryAttribute:productCategoryAttributeUpdated:mysql')
+
+const eventExecutor = new EventExecutor()
+
+eventExecutor.init({
+    eventBusUrl: 'amqp://localhost',
+    eventStoreUrl: 'mongodb://localhost:27017/event-source',
+})
+
+eventExecutor.on('connected', () => {
+    eventExecutor.execute(events.productCategoryAttributeUpdated, async function (event, message) {
+        const { version } = event
+        const { productCategoryAttributeId, productCategoryId, name, note }: ProductCategoryAttributeProps = event.payload
+        await ProductCategoryAttribute.update({ productCategoryId, name, note, version }, { where: { productCategoryAttributeId, version: version - 1 } })
+    })
+})

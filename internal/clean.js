@@ -5,13 +5,14 @@ if (!shell.which('git')) {
     shell.exit(1)
 }
 
-process.stdout.write('Cleanup started...')
+console.log('Cleanup started...')
 shell.rm('-rf', 'src/commandHandlers/*')
 shell.rm('-rf', 'src/domain/*')
 shell.rm('-rf', 'pm2/*')
 shell.rm('-rf', 'src/eventHandlers/*')
-shell.rm('-rf', 'src/infrastructure/commands.js')
-shell.rm('-rf', 'src/infrastructure/events.js')
+shell.rm('-rf', 'src/infrastructure/commands.ts')
+shell.rm('-rf', 'src/infrastructure/events.ts')
 // shell.rm('-rf', '.git')
-shell.rm('-rf', 'node_modules/')
-process.stdout.write('Cleanup finish...')
+// shell.rm('-rf', 'node_modules/')
+console.log('Cleanup finished...')
+

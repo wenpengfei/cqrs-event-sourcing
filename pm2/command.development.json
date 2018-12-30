@@ -1,9 +1,178 @@
 [
     {
-        "name": "command-member-createMember-worker",
-        "script": "./src/commandHandlers/member/createMember.js",
+        "name": "dev-command-product-createProduct-worker",
+        "script": "./src/commandHandlers/product/createProduct.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-product-deleteProduct-worker",
+        "script": "./src/commandHandlers/product/deleteProduct.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-product-updateProduct-worker",
+        "script": "./src/commandHandlers/product/updateProduct.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productAttribute-createProductAttribute-worker",
+        "script": "./src/commandHandlers/productAttribute/createProductAttribute.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productAttribute-deleteProductAttribute-worker",
+        "script": "./src/commandHandlers/productAttribute/deleteProductAttribute.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productAttribute-updateProductAttribute-worker",
+        "script": "./src/commandHandlers/productAttribute/updateProductAttribute.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productCategory-createProductCategory-worker",
+        "script": "./src/commandHandlers/productCategory/createProductCategory.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productCategory-deleteProductCategory-worker",
+        "script": "./src/commandHandlers/productCategory/deleteProductCategory.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productCategory-updateProductCategory-worker",
+        "script": "./src/commandHandlers/productCategory/updateProductCategory.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productCategoryAttribute-createProductCategoryAttribute-worker",
+        "script": "./src/commandHandlers/productCategoryAttribute/createProductCategoryAttribute.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productCategoryAttribute-deleteProductCategoryAttribute-worker",
+        "script": "./src/commandHandlers/productCategoryAttribute/deleteProductCategoryAttribute.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productCategoryAttribute-updateProductCategoryAttribute-worker",
+        "script": "./src/commandHandlers/productCategoryAttribute/updateProductCategoryAttribute.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productSku-createProductSku-worker",
+        "script": "./src/commandHandlers/productSku/createProductSku.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productSku-deleteProductSku-worker",
+        "script": "./src/commandHandlers/productSku/deleteProductSku.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-command-productSku-updateProductSku-worker",
+        "script": "./src/commandHandlers/productSku/updateProductSku.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",

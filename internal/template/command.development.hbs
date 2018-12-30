@@ -1,10 +1,11 @@
 [
     {{#each this}}
     {
-        "name": "command-{{moduleName}}-{{commandName}}-worker",
+        "name": "dev-command-{{moduleName}}-{{commandName}}-worker",
         "script": "{{filePath}}",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",

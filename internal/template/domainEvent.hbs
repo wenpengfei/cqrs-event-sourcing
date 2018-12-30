@@ -1,12 +1,26 @@
-const { DomainError } = require('cqrs-lite')
-const events = require('../../../infrastructure/events')
+import { DomainError } from 'cqrs-lite'
+import { {{capitalizeAll moduleName}}Props } from './../../types/{{moduleName}}';
+import events from '../../../infrastructure/events'
 
-const {{commandName}} = () => {
+/**
+ * @api {post} /command {{commandName}}
+ *
+ * @apiVersion 1.0.0
+ * @apiGroup {{capitalizeAll moduleName}}
+ * @apiName {{commandName}}
+ *
+ * @apiHeader {string} name {{commandName}}
+ * @apiHeader {string} token 访问令牌
+ * @apiHeader {string} aggregateId 聚合根Id
+ * @apiHeader {string} commandId 命令Id
+ * 
+ * @apiParam {string} example example
+ *
+ * @apiSuccess {number} StatusCode 状态码
+ */
+export default ({{moduleName}}: {{capitalizeAll moduleName}}Props) => {
   return {
     type: events.{{eventName}},
-    payload: {
-    }
+    payload: {{moduleName}}
   }
 }
-
-module.exports = {{commandName}}

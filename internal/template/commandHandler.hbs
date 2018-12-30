@@ -1,6 +1,7 @@
-const commands = require('../../infrastructure/commands')
-const {{commandName}} = require('../../domain/entities/{{moduleName}}/{{commandName}}')
-const { CommandExecutor } = require('cqrs-lite')
+import { CommandExecutor } from 'cqrs-lite'
+import commands from '../../infrastructure/commands'
+import {{commandName}} from '../../domain/entities/{{moduleName}}/{{commandName}}'
+
 const debug = require('debug')('cqrs:commandHandlers:{{moduleName}}:{{commandName}}')
 
 const commandExecutor = new CommandExecutor()
@@ -14,7 +15,6 @@ commandExecutor.init({
 
 commandExecutor.on('connected', () => {
     commandExecutor.execute(commands.{{commandName}}, function (command, message) {
-        debug(command)
-        return {{commandName}}()
+        return {{commandName}}(command.payload)
     })
 })

@@ -1,16 +1,135 @@
 [
     {
-        "name": "event-member-memberCreated-elasticsearch-worker",
-        "script": "./src/eventHandlers/member/memberCreated/elasticsearch.js",
+        "name": "prod-event-product-productCreated-mysql-worker",
+        "script": "./src/eventHandlers/product/productCreated/mysql.ts",
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
         "env": {
             "NODE_ENV": "production"
         }
     },
     {
-        "name": "event-member-memberCreated-mysql-worker",
-        "script": "./src/eventHandlers/member/memberCreated/mysql.js",
+        "name": "prod-event-product-productDeleted-mysql-worker",
+        "script": "./src/eventHandlers/product/productDeleted/mysql.ts",
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-product-productUpdated-mysql-worker",
+        "script": "./src/eventHandlers/product/productUpdated/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productAttribute-productAttributeCreated-mysql-worker",
+        "script": "./src/eventHandlers/productAttribute/productAttributeCreated/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productAttribute-productAttributeDeleted-mysql-worker",
+        "script": "./src/eventHandlers/productAttribute/productAttributeDeleted/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productAttribute-productAttributeUpdated-mysql-worker",
+        "script": "./src/eventHandlers/productAttribute/productAttributeUpdated/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productCategory-productCategoryCreated-mysql-worker",
+        "script": "./src/eventHandlers/productCategory/productCategoryCreated/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productCategory-productCategoryDeleted-mysql-worker",
+        "script": "./src/eventHandlers/productCategory/productCategoryDeleted/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productCategory-productCategoryUpdated-mysql-worker",
+        "script": "./src/eventHandlers/productCategory/productCategoryUpdated/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productCategoryAttribute-productCategoryAttributeCreated-mysql-worker",
+        "script": "./src/eventHandlers/productCategoryAttribute/productCategoryAttributeCreated/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productCategoryAttribute-productCategoryAttributeDeleted-mysql-worker",
+        "script": "./src/eventHandlers/productCategoryAttribute/productCategoryAttributeDeleted/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productCategoryAttribute-productCategoryAttributeUpdated-mysql-worker",
+        "script": "./src/eventHandlers/productCategoryAttribute/productCategoryAttributeUpdated/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productSku-productSkuCreated-mysql-worker",
+        "script": "./src/eventHandlers/productSku/productSkuCreated/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productSku-productSkuDeleted-mysql-worker",
+        "script": "./src/eventHandlers/productSku/productSkuDeleted/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
+        "env": {
+            "NODE_ENV": "production"
+        }
+    },
+    {
+        "name": "prod-event-productSku-productSkuUpdated-mysql-worker",
+        "script": "./src/eventHandlers/productSku/productSkuUpdated/mysql.ts",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart" : "200M",
         "env": {
             "NODE_ENV": "production"
         }

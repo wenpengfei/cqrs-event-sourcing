@@ -1,4 +1,4 @@
-const events = require('../../infrastructure/events')
+import * as events from '../../infrastructure/events'
 
 const initialState = {
 }
@@ -17,4 +17,4 @@ const reduceTo{{capitalizeAll moduleName}} = (history) => {
     return history.reduce(reducer, initialState)
 }
 
-module.exports = reduceTo{{capitalizeAll moduleName}}
+export default reduceTo{{capitalizeAll moduleName}}
