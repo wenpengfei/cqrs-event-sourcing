@@ -23,7 +23,7 @@ eventExecutor.on('connected', () => {
         return __awaiter(this, void 0, void 0, function* () {
             const version = event.version;
             const { productSkuId, stock, price, barCode } = event.payload;
-            yield makeMysqlClient_1.ProductSku.update({ stock, price, barCode }, { where: { productSkuId, version: version - 1 } });
+            yield makeMysqlClient_1.ProductSku.update({ stock, price, barCode, version }, { where: { productSkuId, version: version - 1 } });
         });
     });
 });
