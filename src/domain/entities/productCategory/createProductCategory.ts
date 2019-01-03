@@ -20,13 +20,14 @@ import { ProductCategoryProps } from './../../types/productCategory';
  * @apiSuccess {number} StatusCode 状态码
  */
 export default (productCategory: ProductCategoryProps) => {
-  const { productCategoryId, name, path, note } = productCategory
+  const { productCategoryId, name, parent, path, note } = productCategory
   return {
     type: events.productCategoryCreated,
     payload: {
       productCategoryId,
       name,
       path,
+      parent,
       note,
     }
   }

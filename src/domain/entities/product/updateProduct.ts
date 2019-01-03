@@ -19,7 +19,7 @@ import { ProductProps } from './../../types/product';
  * @apiSuccess {number} StatusCode 状态码
  */
 export default (product: ProductProps) => {
-  const { productId, name, guidePrice, costPrice, productCategoryId, defaultImgUrl } = product
+  const { productId, name, guidePrice, costPrice, productCategoryId, productCategoryPath, defaultImgUrl } = product
   return {
     type: events.productUpdated,
     payload: {
@@ -28,6 +28,7 @@ export default (product: ProductProps) => {
       guidePrice,
       costPrice,
       productCategoryId,
+      productCategoryPath,
       defaultImgUrl
     }
   }

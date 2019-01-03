@@ -15,7 +15,7 @@ eventExecutor.init({
 eventExecutor.on('connected', () => {
     eventExecutor.execute(events.productCategoryUpdated, async function (event, message) {
         const version = event.version
-        const { productCategoryId, name, path, note }: ProductCategoryProps = event.payload
-        await ProductCategory.update({ name, path, note, version }, { where: { productCategoryId, version: version - 1 } })
+        const { productCategoryId, name, parent, note, path }: ProductCategoryProps = event.payload
+        await ProductCategory.update({ name, parent, note, path, version }, { where: { productCategoryId, version: version - 1 } })
     })
 })

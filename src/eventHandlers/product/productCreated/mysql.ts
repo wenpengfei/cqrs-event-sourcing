@@ -15,7 +15,7 @@ eventExecutor.init({
 eventExecutor.on('connected', () => {
     eventExecutor.execute(events.productCreated, async function (event, message) {
         const version = event.version
-        const { productId, name, guidePrice, costPrice, productCategoryId, defaultImgUrl } = event.payload
-        await Product.create({ productId, name, guidePrice, costPrice, productCategoryId, defaultImgUrl, version })
+        const { productId, name, guidePrice, costPrice, productCategoryId, productCategoryPath, defaultImgUrl } = event.payload
+        await Product.create({ productId, name, guidePrice, costPrice, productCategoryId, productCategoryPath, defaultImgUrl, version })
     })
 })

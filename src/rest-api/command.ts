@@ -1,4 +1,3 @@
-import { ProductCategoryProps } from "../domain/types/productCategory";
 import * as express from 'express'
 const { EventStore, CommandBus } = require('cqrs-lite')
 const bodyParser = require('body-parser')
@@ -18,6 +17,9 @@ commandBus.connect()
 
 const app = express()
 const port = 7878
+
+const cors = require('cors')
+app.use(cors())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
@@ -51,6 +53,7 @@ const transferRequestToCreateCommand = (body) => (key) => (commandName) => {
 }
 
 const transferRequestToModifyCommand = (body) => (key) => (commandName) => {
+    console.log(body)
     const { version } = body
     const command = {
         name: commandName,
@@ -62,6 +65,7 @@ const transferRequestToModifyCommand = (body) => (key) => (commandName) => {
 }
 
 const requestHandler = (transferHandler) => (commandName, key) => (req, res) => {
+    console.log(req.body)
     const command = transferHandler(req.body)(key)(commandName)
     commandBus.publish(command.name, command)
     res.json(successResponse)
@@ -80,7 +84,7 @@ app.route('/productCategoryAttribute')
 app.route('/productAttribute')
     .post(requestHandler(transferRequestToCreateCommand)(commands.createProductAttribute, 'productAttributeId'))
     .put(requestHandler(transferRequestToModifyCommand)(commands.updateProductAttribute, 'productAttributeId'))
-    .delete(requestHandler(transferRequestToModifyCommand)(commands.deleteProductCategory, 'productAttributeId'))
+    .delete(requestHandler(transferRequestToModifyCommand)(commands.deleteProductAttribute, 'productAttributeId'))
 
 app.route('/product')
     .post(requestHandler(transferRequestToCreateCommand)(commands.createProduct, 'productId'))
@@ -93,4 +97,4 @@ app.route('/productSku')
     .delete(requestHandler(transferRequestToModifyCommand)(commands.deleteProductSku, 'productSkuId'))
 
 app.use(errorHandler)
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`command service listening on port ${port}!`))

@@ -19,11 +19,13 @@ import { ProductSkuProps } from './../../types/productSku';
  * @apiSuccess {number} StatusCode 状态码
  */
 export default (productSku: ProductSkuProps) => {
-  const { productSkuId, stock, price, barCode }: ProductSkuProps = productSku
+  const { productSkuId, stock, price, barCode, name, note }: ProductSkuProps = productSku
   return {
     type: events.productSkuUpdated,
     payload: {
       productSkuId,
+      name,
+      note,
       stock,
       price,
       barCode

@@ -15,7 +15,7 @@ eventExecutor.init({
 eventExecutor.on('connected', () => {
     eventExecutor.execute(events.productUpdated, async function (event, message) {
         const version = event.version
-        const { productId, name, guidePrice, costPrice, productCategoryId, defaultImgUrl } = event.payload
-        await Product.update({ name, guidePrice, costPrice, productCategoryId, defaultImgUrl, version }, { where: { productId, version: version - 1 } })
+        const { productId, name, guidePrice, costPrice, productCategoryId, defaultImgUrl, productCategoryPath } = event.payload
+        await Product.update({ name, guidePrice, costPrice, productCategoryId, defaultImgUrl, version, productCategoryPath }, { where: { productId, version: version - 1 } })
     })
 })

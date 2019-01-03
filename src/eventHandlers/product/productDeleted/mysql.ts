@@ -15,5 +15,6 @@ eventExecutor.on('connected', () => {
         const version = event.version
         const { productId } = event.payload
         await Product.destroy({ where: { productId, version: version - 1 } })
+        await ProductAttribute.destroy({ where: { productId } })
     })
 })

@@ -1,10 +1,22 @@
 [
     {
-        "name": "dev-product-api",
+        "name": "dev-product-command-api",
         "script": "./src/rest-api/command.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
+        "env": {
+            "NODE_ENV": "development",
+            "DEBUG": "cqrs*",
+            "DEBUG_COLORS": true
+        }
+    },
+    {
+        "name": "dev-product-query-api",
+        "script": "./src/rest-api/query.ts",
+        "watch": true,
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",

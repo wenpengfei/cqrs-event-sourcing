@@ -15,7 +15,7 @@ eventExecutor.init({
 eventExecutor.on('connected', () => {
     eventExecutor.execute(events.productSkuUpdated, async function (event, message) {
         const version = event.version
-        const { productSkuId, stock, price, barCode }: ProductSkuProps = event.payload
-        await ProductSku.update({ stock, price, barCode, version }, { where: { productSkuId, version: version - 1 } })
+        const { productSkuId, stock, price, barCode, name, note }: ProductSkuProps = event.payload
+        await ProductSku.update({ stock, price, barCode, version, name, note }, { where: { productSkuId, version: version - 1 } })
     })
 })

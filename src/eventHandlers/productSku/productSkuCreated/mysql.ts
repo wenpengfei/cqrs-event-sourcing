@@ -15,8 +15,8 @@ eventExecutor.init({
 eventExecutor.on('connected', () => {
     eventExecutor.execute(events.productSkuCreated, async function (event, message) {
         const version = event.version
-        const { productSkuId, productId, productSkuItems, stock, price, barCode }: ProductSkuProps = event.payload
-        await ProductSku.create({ productSkuId, productId, stock, price, barCode, version })
+        const { productSkuId, productId, name, productSkuItems, stock, price, barCode, note }: ProductSkuProps = event.payload
+        await ProductSku.create({ productSkuId, productId, stock, price, barCode, version, name, note })
         if (productSkuItems && productSkuItems.length > 0) {
             const productSkuItemsList = productSkuItems.map(item => {
                 return {

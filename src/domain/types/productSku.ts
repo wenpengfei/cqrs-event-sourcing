@@ -1,4 +1,6 @@
 export interface ProductSkuProps {
+    name?: string,
+    note?: string,
     productSkuId?: string,
     productId?: string,
     productSkuItems?: Array<ProductSkuItemProps>

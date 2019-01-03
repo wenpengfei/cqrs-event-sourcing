@@ -19,6 +19,7 @@ import events from '../../../infrastructure/events'
  * @apiSuccess {number} StatusCode 状态码
  */
 export default (productAttribute: ProductAttributeProps) => {
+  console.log('evt', productAttribute)
   const { productAttributeId, productId, productCategoryAttributeId, value, imgUrl } = productAttribute
   return {
     type: events.productAttributeDeleted,

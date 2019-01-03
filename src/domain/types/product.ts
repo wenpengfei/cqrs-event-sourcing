@@ -4,6 +4,7 @@ export interface ProductProps {
     guidePrice?: number,
     costPrice?: number,
     productCategoryId?: string,
+    productCategoryPath?: string,
     defaultImgUrl?: string,
     version?: number,
 }
