@@ -22,8 +22,8 @@ eventExecutor.on('connected', () => {
     eventExecutor.execute(events_1.default.productCategoryCreated, function (event, message) {
         return __awaiter(this, void 0, void 0, function* () {
             const { version } = event;
-            const { productCategoryId, name, path, note } = event.payload;
-            yield makeMysqlClient_1.ProductCategory.create({ productCategoryId, name, path, note, version });
+            const { productCategoryId, name, parent, note, path } = event.payload;
+            yield makeMysqlClient_1.ProductCategory.create({ productCategoryId, name, parent, note, version, path });
         });
     });
 });

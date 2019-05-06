@@ -12,6 +12,7 @@ exports.sequelize = sequelize;
 const Product = sequelize.define('product', {
     productId: { type: Sequelize.UUID(), field: 'productId', primaryKey: true },
     productCategoryId: { type: Sequelize.UUID(), field: 'productCategoryId' },
+    productCategoryPath: { type: Sequelize.STRING, field: 'productCategoryPath' },
     name: { type: Sequelize.STRING({ length: 100 }), field: 'name' },
     defaultImgUrl: { type: Sequelize.STRING({ length: 100 }), field: 'defaultImgUrl' },
     guidePrice: { type: Sequelize.INTEGER, field: 'guidePrice' },
@@ -31,6 +32,7 @@ exports.ProductAttribute = ProductAttribute;
 const ProductCategory = sequelize.define('productCategory', {
     productCategoryId: { type: Sequelize.UUID(), field: 'productCategoryId', primaryKey: true },
     name: { type: Sequelize.STRING({ length: 100 }), field: 'name' },
+    parent: { type: Sequelize.STRING({ length: 100 }), field: 'parent' },
     path: { type: Sequelize.STRING({ length: 100 }), field: 'path' },
     note: { type: Sequelize.STRING({ length: 100 }), field: 'note' },
     version: { type: Sequelize.INTEGER, field: 'version' },
@@ -46,6 +48,8 @@ const ProductCategoryAttribute = sequelize.define('productCategoryAttribute', {
 exports.ProductCategoryAttribute = ProductCategoryAttribute;
 const ProductSku = sequelize.define('productSku', {
     productSkuId: { type: Sequelize.UUID(), field: 'productSkuId', primaryKey: true },
+    name: { type: Sequelize.STRING({ length: 100 }), field: 'name' },
+    note: { type: Sequelize.STRING({ length: 100 }), field: 'note' },
     productId: { type: Sequelize.UUID(), field: 'productId' },
     stock: { type: Sequelize.INTEGER, field: 'stock' },
     price: { type: Sequelize.DECIMAL(12, 2), field: 'price' },

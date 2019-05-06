@@ -18,13 +18,14 @@ const events_1 = require("../../../infrastructure/events");
  * @apiSuccess {number} StatusCode 状态码
  */
 exports.default = (productCategory) => {
-    const { productCategoryId, name, path, note } = productCategory;
+    const { productCategoryId, name, parent, path, note } = productCategory;
     return {
         type: events_1.default.productCategoryCreated,
         payload: {
             productCategoryId,
             name,
             path,
+            parent,
             note,
         }
     };

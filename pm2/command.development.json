@@ -4,7 +4,7 @@
         "script": "./src/commandHandlers/product/createProduct.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -16,7 +16,7 @@
         "script": "./src/commandHandlers/product/deleteProduct.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -28,7 +28,7 @@
         "script": "./src/commandHandlers/product/updateProduct.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -40,7 +40,7 @@
         "script": "./src/commandHandlers/productAttribute/createProductAttribute.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -52,7 +52,7 @@
         "script": "./src/commandHandlers/productAttribute/deleteProductAttribute.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -64,7 +64,7 @@
         "script": "./src/commandHandlers/productAttribute/updateProductAttribute.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -76,7 +76,7 @@
         "script": "./src/commandHandlers/productCategory/createProductCategory.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -88,7 +88,7 @@
         "script": "./src/commandHandlers/productCategory/deleteProductCategory.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -100,7 +100,7 @@
         "script": "./src/commandHandlers/productCategory/updateProductCategory.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -112,7 +112,7 @@
         "script": "./src/commandHandlers/productCategoryAttribute/createProductCategoryAttribute.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -124,7 +124,7 @@
         "script": "./src/commandHandlers/productCategoryAttribute/deleteProductCategoryAttribute.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -136,7 +136,7 @@
         "script": "./src/commandHandlers/productCategoryAttribute/updateProductCategoryAttribute.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -148,7 +148,7 @@
         "script": "./src/commandHandlers/productSku/createProductSku.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -160,7 +160,7 @@
         "script": "./src/commandHandlers/productSku/deleteProductSku.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",
@@ -172,7 +172,7 @@
         "script": "./src/commandHandlers/productSku/updateProductSku.ts",
         "watch": true,
         "log_date_format": "YYYY-MM-DD HH:mm:ss",
-        "max_memory_restart" : "200M",
+        "max_memory_restart": "200M",
         "env": {
             "NODE_ENV": "development",
             "DEBUG": "cqrs*",

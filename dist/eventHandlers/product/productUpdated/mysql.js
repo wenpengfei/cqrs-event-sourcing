@@ -22,8 +22,8 @@ eventExecutor.on('connected', () => {
     eventExecutor.execute(events_1.default.productUpdated, function (event, message) {
         return __awaiter(this, void 0, void 0, function* () {
             const version = event.version;
-            const { productId, name, guidePrice, costPrice, productCategoryId, defaultImgUrl } = event.payload;
-            yield makeMysqlClient_1.Product.update({ name, guidePrice, costPrice, productCategoryId, defaultImgUrl, version }, { where: { productId, version: version - 1 } });
+            const { productId, name, guidePrice, costPrice, productCategoryId, defaultImgUrl, productCategoryPath } = event.payload;
+            yield makeMysqlClient_1.Product.update({ name, guidePrice, costPrice, productCategoryId, defaultImgUrl, version, productCategoryPath }, { where: { productId, version: version - 1 } });
         });
     });
 });

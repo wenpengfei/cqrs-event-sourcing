@@ -18,7 +18,7 @@ const events_1 = require("../../../infrastructure/events");
  * @apiSuccess {number} StatusCode 状态码
  */
 exports.default = (product) => {
-    const { productId, name, guidePrice, costPrice, productCategoryId, defaultImgUrl } = product;
+    const { productId, name, guidePrice, costPrice, productCategoryId, productCategoryPath, defaultImgUrl } = product;
     return {
         type: events_1.default.productUpdated,
         payload: {
@@ -27,6 +27,7 @@ exports.default = (product) => {
             guidePrice,
             costPrice,
             productCategoryId,
+            productCategoryPath,
             defaultImgUrl
         }
     };

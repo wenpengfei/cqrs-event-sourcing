@@ -22,8 +22,8 @@ eventExecutor.on('connected', () => {
     eventExecutor.execute(events_1.default.productCategoryUpdated, function (event, message) {
         return __awaiter(this, void 0, void 0, function* () {
             const version = event.version;
-            const { productCategoryId, name, path, note } = event.payload;
-            yield makeMysqlClient_1.ProductCategory.update({ name, path, note, version }, { where: { productCategoryId, version: version - 1 } });
+            const { productCategoryId, name, parent, note, path } = event.payload;
+            yield makeMysqlClient_1.ProductCategory.update({ name, parent, note, path, version }, { where: { productCategoryId, version: version - 1 } });
         });
     });
 });

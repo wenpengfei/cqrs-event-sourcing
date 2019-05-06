@@ -23,6 +23,7 @@ eventExecutor.on('connected', () => {
             const version = event.version;
             const { productId } = event.payload;
             yield makeMysqlClient_1.Product.destroy({ where: { productId, version: version - 1 } });
+            yield makeMysqlClient_1.ProductAttribute.destroy({ where: { productId } });
         });
     });
 });

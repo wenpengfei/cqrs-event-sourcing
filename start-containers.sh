@@ -1,0 +1,3 @@
+docker run -d --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql -v /Users/catwen/Volumes/mysql:/var/lib/mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci  --default-authentication-plugin=mysql_native_password
+docker run -d --name rabbitmq --publish 5671:5671 --publish 5672:5672 --publish 4369:4369 --publish 25672:25672 --publish 15671:15671 --publish 15672:15672 rabbitmq:management
+docker run -d -p 27017:27017 -v /Users/catwen/Volumes/mongo:/data/db mongo

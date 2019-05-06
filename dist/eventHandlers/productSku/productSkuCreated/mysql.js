@@ -22,8 +22,8 @@ eventExecutor.on('connected', () => {
     eventExecutor.execute(events_1.default.productSkuCreated, function (event, message) {
         return __awaiter(this, void 0, void 0, function* () {
             const version = event.version;
-            const { productSkuId, productId, productSkuItems, stock, price, barCode } = event.payload;
-            yield makeMysqlClient_1.ProductSku.create({ productSkuId, productId, stock, price, barCode, version });
+            const { productSkuId, productId, name, productSkuItems, stock, price, barCode, note } = event.payload;
+            yield makeMysqlClient_1.ProductSku.create({ productSkuId, productId, stock, price, barCode, version, name, note });
             if (productSkuItems && productSkuItems.length > 0) {
                 const productSkuItemsList = productSkuItems.map(item => {
                     return {

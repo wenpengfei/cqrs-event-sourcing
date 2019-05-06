@@ -22,8 +22,8 @@ eventExecutor.on('connected', () => {
     eventExecutor.execute(events_1.default.productCreated, function (event, message) {
         return __awaiter(this, void 0, void 0, function* () {
             const version = event.version;
-            const { productId, name, guidePrice, costPrice, productCategoryId, defaultImgUrl } = event.payload;
-            yield makeMysqlClient_1.Product.create({ productId, name, guidePrice, costPrice, productCategoryId, defaultImgUrl, version });
+            const { productId, name, guidePrice, costPrice, productCategoryId, productCategoryPath, defaultImgUrl } = event.payload;
+            yield makeMysqlClient_1.Product.create({ productId, name, guidePrice, costPrice, productCategoryId, productCategoryPath, defaultImgUrl, version });
         });
     });
 });

@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    mysql-db:
+        image: mysql
+        container_name: mysql-db
+        command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        restart: always
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_USER: test
+          MYSQL_PASSWORD: test
+        ports:
+          - 3306:3306
+        volumes:
+          - /Users/catwen/Volumes/mysql:/var/lib/mysql
+    mongo-db:
+        image: mongo
+        container_name: mongo-db
+        restart: always
+        ports:
+          - 27017:27017
+        volumes:
+          - /Users/catwen/Volumes/mongo:/data/db
+    rabbitmq-mq:
+        image: rabbitmq:management
+        container_name: rabbitmq-mq
+        restart: always
+        ports:
+        - 5671:5671 
+        - 5672:5672 
+        - 4369:4369 
+        - 25672:25672 
+        - 15671:15671 
+        - 15672:15672

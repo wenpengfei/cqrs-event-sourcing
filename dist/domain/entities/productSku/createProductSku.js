@@ -18,10 +18,12 @@ const events_1 = require("../../../infrastructure/events");
  * @apiSuccess {number} StatusCode 状态码
  */
 exports.default = (productSku) => {
-    const { productSkuId, productId, productSkuItems, stock, price, barCode } = productSku;
+    const { productSkuId, name, note, productId, productSkuItems, stock, price, barCode } = productSku;
     return {
         type: events_1.default.productSkuCreated,
         payload: {
+            name,
+            note,
             productSkuId,
             productId,
             productSkuItems,

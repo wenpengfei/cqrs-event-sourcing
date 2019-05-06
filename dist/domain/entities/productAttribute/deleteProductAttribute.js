@@ -18,6 +18,7 @@ const events_1 = require("../../../infrastructure/events");
  * @apiSuccess {number} StatusCode 状态码
  */
 exports.default = (productAttribute) => {
+    console.log('evt', productAttribute);
     const { productAttributeId, productId, productCategoryAttributeId, value, imgUrl } = productAttribute;
     return {
         type: events_1.default.productAttributeDeleted,
